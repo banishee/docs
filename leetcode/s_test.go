@@ -11,3 +11,7 @@ func Test_120(t *testing.T) {
 	fmt.Println(minimumTotal(m))
 }
 
+func Test_746(t *testing.T) {
+	cost := []int{1, 100, 1, 1, 1, 100, 1, 1, 100, 1}
+	fmt.Println(minCostClimbingStairs(cost))
+}

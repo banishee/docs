@@ -1,4 +1,4 @@
-package string
+package main
 
 func mergeAlternately(word1 string, word2 string) string {
 	result := []byte{}

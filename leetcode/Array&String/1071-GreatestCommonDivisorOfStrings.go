@@ -1,31 +1,49 @@
 package main
 
 func gcdOfStrings(str1 string, str2 string) string {
-	targetStr := str1
-	if len(str1) < len(str2) {
-		targetStr = str2
+	if str1 + str2 != str2 + str1 {
+		return ""
 	}
 
-	for i := len(targetStr); i > 0; i-- {
-		divisor := targetStr[:i]
-		if isDivided(str1, divisor) && isDivided(str2, divisor) {
-			return divisor
-		}
-	}
-
-	return ""
+	gcdLength := gcd(len(str1), len(str2))
+	return str1[:gcdLength]
 }
 
-func isDivided(s string, t string) bool {
-	lenS, lenT := len(s),len(t)
-	if lenS % lenT != 0 {
-		return false
+func gcd(x, y int) int {
+	for y != 0 {
+		x, y = y, x%y
 	}
-
-	for i := 0; i < lenS; i += lenT {
-		if s[i:i+lenT] != t {
-			return false
-		}
-	}
-	return true
+	return x
 }
+
+
+// brute force
+// func gcdOfStrings(str1 string, str2 string) string {
+// 	targetStr := str1
+// 	if len(str1) < len(str2) {
+// 		targetStr = str2
+// 	}
+
+// 	for i := len(targetStr); i > 0; i-- {
+// 		divisor := targetStr[:i]
+// 		if isDivided(str1, divisor) && isDivided(str2, divisor) {
+// 			return divisor
+// 		}
+// 	}
+
+// 	return ""
+// }
+
+// func isDivided(s string, t string) bool {
+// 	lenS, lenT := len(s),len(t)
+// 	if lenS % lenT != 0 {
+// 		return false
+// 	}
+
+// 	for i := 0; i < lenS; i += lenT {
+// 		if s[i:i+lenT] != t {
+// 			return false
+// 		}
+// 	}
+// 	return true
+// }

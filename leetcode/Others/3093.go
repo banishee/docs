@@ -46,9 +46,9 @@ func stringIndices(wordsContainer []string, wordsQuery []string) []int {
 	return ans
 }
 
-func main() {
-	stringIndices(
-		[]string{"a", "b", "b"},
-		[]string{"a", "b", "b"},
-	)
-}
+// func main() {
+// 	stringIndices(
+// 		[]string{"a", "b", "b"},
+// 		[]string{"a", "b", "b"},
+// 	)
+// }

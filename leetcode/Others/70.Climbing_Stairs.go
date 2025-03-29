@@ -1,4 +1,4 @@
-package leetcode
+package main
 
 func climbStairs(n int) int {
 	if n <= 1 {
@@ -13,4 +13,3 @@ func climbStairs(n int) int {
 	}
 	return dp[n-1]
 }
-

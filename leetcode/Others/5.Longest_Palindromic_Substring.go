@@ -1,4 +1,4 @@
-package leetcode
+package main
 
 func longestPalindrome(s string) string {
 	start, end := 0, 0

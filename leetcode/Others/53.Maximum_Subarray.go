@@ -1,4 +1,4 @@
-package leetcode
+package main
 
 func maxSubArray(nums []int) int {
 	n := len(nums)
@@ -7,9 +7,9 @@ func maxSubArray(nums []int) int {
 	}
 
 	res := nums[0]
-	dp := make([]int, n , n)
-	dp[0]= nums[0]
-	for i :=1; i < n; i++ {
+	dp := make([]int, n, n)
+	dp[0] = nums[0]
+	for i := 1; i < n; i++ {
 		if dp[i-1]+nums[i] > nums[i] {
 			dp[i] = dp[i-1] + nums[i]
 		} else {

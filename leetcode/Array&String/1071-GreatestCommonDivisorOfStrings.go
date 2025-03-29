@@ -1,7 +1,7 @@
 package main
 
 func gcdOfStrings(str1 string, str2 string) string {
-	if str1 + str2 != str2 + str1 {
+	if str1+str2 != str2+str1 {
 		return ""
 	}
 
@@ -15,7 +15,6 @@ func gcd(x, y int) int {
 	}
 	return x
 }
-
 
 // brute force
 // func gcdOfStrings(str1 string, str2 string) string {

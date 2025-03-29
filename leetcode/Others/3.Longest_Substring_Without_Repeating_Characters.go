@@ -1,4 +1,4 @@
-package leetcode
+package main
 
 func lengthOfLongestSubstring(s string) int {
 	m := make(map[byte]bool, 10)
@@ -16,7 +16,7 @@ func lengthOfLongestSubstring(s string) int {
 			r++
 		}
 
-		curLen := r-i+1
+		curLen := r - i + 1
 		if length < curLen {
 			length = curLen
 		}

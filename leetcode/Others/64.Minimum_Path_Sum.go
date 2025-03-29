@@ -1,10 +1,10 @@
-package leetcode
+package main
 
 func minPathSum(grid [][]int) int {
 	n, m := len(grid), len(grid[0])
 	dp := make([]int, m, m)
 	dp[0] = grid[0][0]
-	for j := 1; j < m ; j++ {
+	for j := 1; j < m; j++ {
 		dp[j] = grid[0][j] + dp[j-1]
 	}
 
@@ -25,7 +25,7 @@ func minPathSum1(grid [][]int) int {
 	n, m := len(grid), len(grid[0])
 	dp := make([]int, m, m)
 	dp[0] = grid[0][0]
-	for j := 1; j < m ; j++ {
+	for j := 1; j < m; j++ {
 		dp[j] = grid[0][j] + dp[j-1]
 	}
 
@@ -41,5 +41,3 @@ func minPathSum1(grid [][]int) int {
 	}
 	return dp[m-1]
 }
-
-

@@ -1,4 +1,4 @@
-package leetcode
+package main
 
 func minCostClimbingStairs(cost []int) int {
 	pre, cur := 0, 0

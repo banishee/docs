@@ -1,7 +1,7 @@
-package leetcode
+package main
 
 func findMin(nums []int) int {
-	low,high := 0, len(nums)-1
+	low, high := 0, len(nums)-1
 	for low < high {
 		if nums[low] < nums[high] {
 			return nums[low]

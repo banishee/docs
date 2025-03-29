@@ -1,4 +1,4 @@
-package leetcode
+package main
 
 func maxProduct(nums []int) int {
 	globalMax, tmpMax, tmpMin := nums[0], nums[0], nums[0]

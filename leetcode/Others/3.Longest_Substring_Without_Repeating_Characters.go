@@ -1,26 +1,25 @@
 package main
 
 func lengthOfLongestSubstring(s string) int {
-	m := make(map[byte]bool, 10)
+	m := make(map[byte]struct{})
 	length := 0
-	// 右指针，初始值为 -1，相当于我们在字符串的左边界的左侧，还没有开始移动
-	r := -1
-	for i := 0; i < len(s); i++ {
-		if i != 0 {
-			// 左指针向右移动一格，移除一个字符
-			delete(m, s[i-1])
-		}
-		for r+1 < len(s) && !m[s[r+1]] {
-			// 不断地移动右指针
-			m[s[r+1]] = true
-			r++
+
+	for left, right := 0, -1; right < len(s)-1; {
+		// next char in right must not exsit in m
+		if _, ok := m[s[right+1]]; !ok {
+			m[s[right+1]] = struct{}{}
+			right++
+		} else {
+			delete(m, s[left])
+			left++
 		}
 
-		curLen := r - i + 1
-		if length < curLen {
-			length = curLen
-		}
+		length = max(length, right-left+1)
 	}
 
 	return length
+}
+
+func main() {
+	lengthOfLongestSubstring("abcabcbb")
 }

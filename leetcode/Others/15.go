@@ -54,7 +54,7 @@ func threeSum(nums []int) [][]int {
 	return ans
 }
 
-func main() {
-	//threeSum([]int{2, -3, 0, -2, -5, -5, -4, 1, 2, -2, 2, 0, 2, -4, 5, 5, -10})
-	threeSum([]int{-1, 0, 1, 2, -1, -4})
-}
+// func main() {
+// 	//threeSum([]int{2, -3, 0, -2, -5, -5, -4, 1, 2, -2, 2, 0, 2, -4, 5, 5, -10})
+// 	threeSum([]int{-1, 0, 1, 2, -1, -4})
+// }

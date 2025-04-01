@@ -30,4 +30,8 @@ B = block size
     >
     > Total I/Os: $O\left(\frac{N}{B} \log_{\frac{M}{B}} \frac{N}{M} \right)$
 
+<br/> 
 
+# Example
+
+1 TB file, 1 GB memory: split into 1000 files, each 1 GB, and sorted. Then load first 1 MB from each file, use minimum heap to sort. Repeat load.

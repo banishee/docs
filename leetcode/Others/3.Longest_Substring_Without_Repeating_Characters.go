@@ -20,6 +20,6 @@ func lengthOfLongestSubstring(s string) int {
 	return length
 }
 
-func main() {
-	lengthOfLongestSubstring("abcabcbb")
-}
+// func main() {
+// 	lengthOfLongestSubstring("abcabcbb")
+// }

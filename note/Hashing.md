@@ -23,7 +23,7 @@ $$
 * Multiply-mod-prime: $h_{a,b}(x) = (a \cdot x + b) \bmod p ,\quad H = \left\{ h_{a,b} \,\middle|\, a \in \{1, \dots, p - 1\},\ b \in \{0, \dots, p - 1\} \right\}$
 * Multiply-shift: $h_a(x) = (a \cdot x \bmod 2^k) \gg (k - \ell), \quad H = \left\{ h_a \,\middle|\, a \text{ is odd in } \{1, \dots, 2^k - 1\} \right\}$
 
-## Chained Hashing 
+## Chained Hashing (Zipper method, Open hashing)
 
 Dictionary problem is to maintain a dynamic set of integers subject $S \subseteq U$ to support LOOKUP(x), INSERT(x) and DELETE(x).
 
@@ -39,6 +39,12 @@ Dictionary problem is to maintain a dynamic set of integers subject $S \subseteq
 > 
 > Time: $O(1 + |A[h(x)]|)$
 >
+
+### Open Addressing (Closed hashing)
+
+The closed hashing method stores all records directly in the hash table, and if a conflict occurs, the search continues in some way. 
+
+For example, the linear probing method: if a conflict occurs at $d$ , check $d + 1$ , $d + 2$ , etc. in turn. Also, there are Quadratic Probing and Double Hashing.
 
 ## Perfect Hashing
 

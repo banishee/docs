@@ -62,6 +62,6 @@ func maxSubArray(nums []int) int {
 // 	return maxSum
 // }
 
-func main() {
-	maxSubArray([]int{-2, 1, -3, 4, -1, 2, 1, -5, 4})
-}
+// func main() {
+// 	maxSubArray([]int{-2, 1, -3, 4, -1, 2, 1, -5, 4})
+// }

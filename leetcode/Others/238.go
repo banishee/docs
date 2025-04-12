@@ -45,6 +45,6 @@ func productExceptSelf(nums []int) []int {
 // 	return answer
 // }
 
-func main() {
-	productExceptSelf([]int{1, 2, 3, 4})
-}
+// func main() {
+// 	productExceptSelf([]int{1, 2, 3, 4})
+// }

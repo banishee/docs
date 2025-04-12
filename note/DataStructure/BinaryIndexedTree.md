@@ -26,10 +26,20 @@ For example, $88_{(10)}=01011000_{(2)}$ , its lowest bit $1$ and the following $
 // This trick takes advantage of two’s complement binary representation. 
 // The bitwise AND of x and -x gets the value represented by the lowest set bit of x.
 int lowbit(int x) {
-    return x & (-x);
+    return x & (-x); // 2^k
 }
 ```
 
+## Build 
+```cpp
+void init() {
+  for (int i = 1; i <= n; ++i) {
+    t[i] += a[i];
+    int j = i + lowbit(i);
+    if (j <= n) t[j] += t[i];
+  }
+}
+```
 
 ## Prefix Sum Query
 

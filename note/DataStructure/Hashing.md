@@ -99,3 +99,7 @@ A perfect hash function for $S$ is a collision-free hash function on $S$.
 
 > At level 1 use solution with many collisions and linear space.
 > Resolve each collisions at level 1 with collision-free solution at level 2.
+
+## String Hashing
+
+Karp-Rabin 

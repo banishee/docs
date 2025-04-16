@@ -1,4 +1,4 @@
-eal# Hashing
+# Hash Functions
 
 A random function that maps a large universe to a small range.
 
@@ -40,6 +40,31 @@ Dictionary problem is to maintain a dynamic set of integers subject $S \subseteq
 > Time: $O(1 + |A[h(x)]|)$
 >
 
+```cpp
+constexpr int SIZE = 1000000;
+constexpr int M = 999997;
+
+struct HashTable {
+  struct Node {
+    int next, value, key;
+  } data[SIZE];
+
+  int head[M], size;
+
+  int f(int key) { return (key % M + M) % M; }
+
+  int get(int key) {
+    for (int p = head[f(key)]; p; p = data[p].next)
+      if (data[p].key == key) return data[p].value;
+    return -1;
+  }
+
+  int modify(int key, int value) {
+    for (int p = head[f(key)]; p; p = data[p].next)
+      if (data[p].key == key) return data[p].value = value;
+  }
+};
+```
 ### Open Addressing (Closed hashing)
 
 The closed hashing method stores all records directly in the hash table, and if a conflict occurs, the search continues in some way. 
@@ -63,3 +88,14 @@ A perfect hash function for $S$ is a collision-free hash function on $S$.
 > Space: $O(n^2)$
 >
 > Time: $O(1)$
+
+### Many Collision but linear Space
+
+> E: $\frac{n}{2}$
+
+### FKS-Scheme
+
+<p align="center"><img src=".data/hashing_FKS.png" alt="pic" width="60%" /></p>
+
+> At level 1 use solution with many collisions and linear space.
+> Resolve each collisions at level 1 with collision-free solution at level 2.

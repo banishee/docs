@@ -20,4 +20,12 @@ Maintain a dynamic set $S$ with support for:
 
 ## van Emde Boas
 
+- **Concept**: Recursively divide the universe to create a hierarchical structure
+
+- **van Emde Boas Tree**:
+  - Time complexity: **O(log log u)**
+  - Space complexity: Initially **O(u)**; can be reduced to **O(n)** with perfect hashing
+
+- **Supports dynamic operations** like insert and delete
+
 ## Tries

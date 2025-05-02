@@ -53,3 +53,5 @@ With these bridge pointers in place, every point in an internal node’s y-sorte
 kD Tree (KDT, k-Dimension Tree) is a tree that can efficiently process$k$ The data structure of dimensional space information.
 
 When the number of nodes n is much larger than $2^k$ , the time efficiency of applying kD Tree is very good.
+
+kD Tree has the form of a binary search tree. Each node on the binary search tree corresponds to a point in the k -dimensional space. The points in each of its subtrees are in a k -dimensional hypercube, and all the points in this hypercube are also in this subtree.

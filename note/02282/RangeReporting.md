@@ -46,3 +46,10 @@ Let's illustrate how to build a 2D range tree with bridges using a small set of 
      - Entries for **P5, P6, P4** belong to the right subtree, so they each have a bridge to their entry in **Node C’s** Y-list, and no entry in the left child. For example, P5’s entry in Node A points to P5 in Node C’s list (P5 is not in Node B’s list).  
 
 With these bridge pointers in place, every point in an internal node’s y-sorted list can quickly lead us to that same point in either the left or right subtree’s list. We have now constructed a complete 2D range tree with bridges: the tree is balanced by x-coordinate, each node stores a sorted list of points by y-coordinate, and each of those list entries has pointers “bridging” to the corresponding entries in the child nodes. This structure is ready to support efficient 2D range queries.
+
+
+# k-D Tree
+
+kD Tree (KDT, k-Dimension Tree) is a tree that can efficiently process$k$ The data structure of dimensional space information.
+
+When the number of nodes n is much larger than $2^k$ , the time efficiency of applying kD Tree is very good.

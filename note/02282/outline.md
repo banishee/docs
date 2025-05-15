@@ -85,6 +85,45 @@ Given strings S and P, determine if P is a substring in S.
 > If fingerprints match, verify using brute-force comparison. 
 >
 > Time: $O(m + n + Fm)$
+>
+
+
+# 2. Predecessor:
+
+Maintain a set S ⊆ U = {0, ..., u-1} to support `predecessor`, `successor`, `insert` and `delete`.
+
+We want a Static predecessor with $O(log log u)$ query time.
+
+## van Emde Boas
+
+<p align="center"><img src=".data/van_emde_boas.png" alt="pic" width="100%" /></p>
+
+> Apply `Two-Level Bitvector` until size of vectors is constant.
+>
+> > Space: $O(u)$
+> >
+> > Time: $𝖳(𝗎) = 𝖳 (𝗎)+ 𝖮(𝟣) = 𝖮(log log 𝗎)$
+>
+
+## Y-Trie
+
+<p align="center"><img src=".data/Y-Fast_Trie.png" alt="pic" width="100%" /></p>
+
+> Partition $S$ into $\frac{n}{log u}$ groups of $log u$ consecutive keys
+>
+> Compute $S'$ = set of split keys between groups.
+>
+> X-fast trie over S’:
+> 
+> * A binary tree with min and max for each node + keys ordered in a linked list.
+>
+> * For each level store a dictionary of prefixes of keys. 
+>
+> Balanced binary search trees for each group.
+>
+> > Space: X-fast trie: $O(\frac{n}{log u} log u) = O(n)$, all BBSTs: $O(n)$
+> >
+> > Time: X-fast trie: $O(log log u)$, BBST: $O(log (log u))$
 
 
 # Week12:

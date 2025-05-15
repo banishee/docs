@@ -136,7 +136,7 @@ Preprocess array $A[1…n]$ of integers to support $RMQ(i,j)$ to return the mini
 
 > Save the result for all intervals of length a power of 2.
 >
-> Any interval is the union of two power of 2 intervals. Lookup results for the two intervals and take minimum.
+> Query: any interval is the union of two power of 2 intervals. Lookup results for the two intervals and take minimum.
 >
 > > Space: $O(n log n)$
 > >
@@ -147,6 +147,39 @@ Preprocess array $A[1…n]$ of integers to support $RMQ(i,j)$ to return the mini
 ## 3.2 ±1RMQ
 
 Consecutive entries diﬀer by 1.
+
+<p align="center"><img src=".data/differ_1_RMQ.png" alt="pic" width="100%" /></p>
+
+> Divide $A$ into blocks of size $\frac{1}{2} logn$.
+>
+> > On blocks:
+> >
+> > <p align="center"><img src=".data/differ_1_RMQ_two_new_arrays.png" alt="pic" width="40%" /></p>
+> >
+> > > $A'$: minimum from each block
+> > >
+> > > $B$: position in $A$ where occurs.
+> > >
+> > > Sparse table data structure on $A'$.
+> > >
+> > Space: $O(|A'| log |A'|) = O(\frac{n}{logn} log \frac{n}{logn})$ = $O(n)$
+> 
+>
+> > Inside blocks:
+> > 
+> > <p align="center"><img src=".data/differ_1_RMQ_precompute_inside_blocks.png" alt="pic" width="25%" /></p>
+> >
+> > > Precompute and save all answers for each normalized block.
+> > >
+> > > > Block is sequence of +1s and -1s.
+> > > > 
+> > > > Number of block descriptions: $2^{\frac{1}{2} logn - 1} ≤ \sqrt{n}$
+> > >
+> > Space: $O(O(\sqrt{n}(log^2 n)) + O(\frac{n}{logn}))$ = $O(n)$
+>
+> Space: SparseTable + PrecomputedTables = $O(n)$
+>
+> Time: $O((1+1) + 1 + 1)$
 
 ## 3.2 Lowest Common Ancestor
 Preprocess rooted tree $T$ with $n$ nodes to support $LCA(u,v)$: return the lowest common ancestor of $u$ and $v$.

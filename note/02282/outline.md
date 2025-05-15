@@ -126,6 +126,31 @@ We want a Static predecessor with $O(log log u)$ query time.
 > > Time: X-fast trie: $O(log log u)$, BBST: $O(log (log u))$
 
 
+# 3. RMQ and LCA
+
+## 3.1 Range Minimum Queries
+Preprocess array $A[1…n]$ of integers to support $RMQ(i,j)$ to return the minimum element in $A[i…j]$.
+
+### Sparse table
+<p align="center"><img src=".data/Sparse_table.png" alt="pic" width="50%" /></p>
+
+> Save the result for all intervals of length a power of 2.
+>
+> Any interval is the union of two power of 2 intervals. Lookup results for the two intervals and take minimum.
+>
+> > Space: $O(n log n)$
+> >
+> > Time: $O(1)$
+> >
+> > Preprocesing time: $O(n log n)$. To compute results for length $2^i$ use results for length $2^{i-1}$.
+
+## 3.2 ±1RMQ
+
+Consecutive entries diﬀer by 1.
+
+## 3.2 Lowest Common Ancestor
+Preprocess rooted tree $T$ with $n$ nodes to support $LCA(u,v)$: return the lowest common ancestor of $u$ and $v$.
+
 # Week12:
 
 https://priyadarshanghosh26.medium.com/christofides-algorithm-the-secret-weapon-for-route-optimization-d2b9ec68d66e

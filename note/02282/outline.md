@@ -184,6 +184,23 @@ Consecutive entries diﬀer by 1.
 ## 3.2 Lowest Common Ancestor
 Preprocess rooted tree $T$ with $n$ nodes to support $LCA(u,v)$: return the lowest common ancestor of $u$ and $v$.
 
+<p align="center"><img src=".data/Cartesian_tree.png" alt="pic" width="75%" /></p>
+
+> Build a `Cartesian Tree` on array.
+>  > Min-heap: every parent node <= Child nodes. 
+>  > 
+>  > Inorder of tree (left->root->right) is the original array.
+> 
+> $E$: Euler tour representation. Preorder walk, write id of node when met.
+>
+> $A$: Depth of node node in $E[i]$. 最小的值代表路径中的更
+>
+> $R$: First occurrence in $E$ of node with id $i$. 第一次访问某节点时，是从根走到它的路径上的第一个“入点”，在 DFS 遍历过程中，你要访问 u 和 v，就必须先经过它们的 LCA
+>
+> $RMQ(i, j) = LCA(i, j) = E[RMQ_A (R[i], R[j])]$
+>
+> Space: $O(E+A+R+RMQ_A)$
+
 # Week12:
 
 https://priyadarshanghosh26.medium.com/christofides-algorithm-the-secret-weapon-for-route-optimization-d2b9ec68d66e

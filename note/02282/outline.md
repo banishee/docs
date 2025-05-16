@@ -3,8 +3,7 @@ The oral exam is without preparation. That means that you come in and then we (e
 * Which algorithms/data structures do you know that solves the following problem?
 * How does algorithm/data structure X work?  
 * Run algorithm/data structure X on the following example,
-* Analyse the running time of algorithm/data structure X,
-* Analyse the space usage/query time of /data structure X,
+* Analyse the running time or space of algorithm/data structure X,
 * Argue correctness of algorithm/data structure X.
 
 # 1. Hashing:
@@ -241,6 +240,30 @@ Preprocess rooted tree T to support querying the $kth$ ancestor of node $v$.
 > > >
 > > > Time: O(1)
 
+# 5. Suffix Trees
+
+## 5.1 String indexing problem
+Preprocess a string $S$ to search the starting positions of all occurrences of $P$ in $S$.
+
+### Suffix Tree
+
+<p align="center"><img src=".data/Suffix_tree.png" alt="pic" width="50%" /></p>
+
+>
+> The compact trie of all suﬃxes of S.
+>
+> Space: O(Number of edges + space for edge labels + string) = $O(n)$
+> 
+> Time: $O(|P|+occ)$
+>
+> Preprocessing time: 
+
+## 5.2 Longest common substring problem
+Find longest common substring of strings $S_1$ and $S_2$.
+
+<p align="center"><img src=".data/Suffix_tree_on_S1S2.png" alt="pic" width="75%" /></p>
+
+> The suﬃx tree over $S_1\$1S_2\$2$.
 
 # Week12:
 

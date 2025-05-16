@@ -182,7 +182,7 @@ Consecutive entries diﬀer by 1.
 > Time: $O((1+1) + 1 + 1)$
 
 ## 3.2 Lowest Common Ancestor
-Preprocess rooted tree $T$ with $n$ nodes to support $LCA(u,v)$: return the lowest common ancestor of $u$ and $v$.
+Preprocess rooted tree $T$ with $n$ nodes to support querying the lowest common ancestor of $u$ and $v$.
 
 <p align="center"><img src=".data/Cartesian_tree.png" alt="pic" width="75%" /></p>
 
@@ -193,13 +193,54 @@ Preprocess rooted tree $T$ with $n$ nodes to support $LCA(u,v)$: return the lowe
 > 
 > $E$: Euler tour representation. Preorder walk, write id of node when met.
 >
-> $A$: Depth of node node in $E[i]$. 最小的值代表路径中的更
+> $A$: Depth of node node in $E[i]$. 最小的值代表路径中的根
 >
 > $R$: First occurrence in $E$ of node with id $i$. 第一次访问某节点时，是从根走到它的路径上的第一个“入点”，在 DFS 遍历过程中，你要访问 u 和 v，就必须先经过它们的 LCA
 >
 > $RMQ(i, j) = LCA(i, j) = E[RMQ_A (R[i], R[j])]$
 >
 > Space: $O(E+A+R+RMQ_A)$
+
+# 4. Level Ancestor
+
+Preprocess rooted tree T to support querying the $kth$ ancestor of node $v$.
+
+## 4.1 Top-Bottom Decomposition
+
+<p align="center"><img src=".data/Top_bottom_tree.png" alt="pic" width="50%" /></p>
+
+> > Jump nodes: maximal **deep** nodes with ≥ $\frac{1}{4} log n$ descendants.
+>
+> > Top tree: 
+> > > Ladder decomposition + Jump pointers for jump nodes, at most $\frac{n}{\frac{1}{4}logn}$ leaves.
+> > >
+> > > For each internal node pointer to some jump node below.
+> > 
+> > > $LA(v,k)$ in top:
+> > >
+> > > Follow pointer to jump node below $v$.
+> > > 
+> > > Jump pointer + ladder solution.
+> >
+> > > Space: O(|ladder| + |jump_nodes|*|tree_height|) = $O(n + \frac{n}{logn} logn) = O(n)$ 
+> > >
+> > > Time: O(1)
+>
+> > Bottom tree:
+> > <p align="center"><img src=".data/Bottom_tree.png" alt="pic" width="50%" /></p>
+> >
+> > > Encode each bottom tree `B` using balanced parentheses representation.
+> > > 
+> > > Encode inputs v and k.
+> > > 
+> > > Build table $A[code(B, v, k)] = LA(v, k)$ in bottom tree `B`.
+> >
+> > > $LA(v,k)$ in bottom: Lookup in $A$.
+> >
+> > > Space: $O(2^{|code|}) = O(2^{2 \cdot \frac{1}{4} logn + 2 \cdot log(\frac{1}{4} logn)}) < O(n^{\frac{1}{2}}log^2n) < O(n)$
+> > >
+> > > Time: O(1)
+
 
 # Week12:
 

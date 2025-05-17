@@ -252,11 +252,11 @@ Preprocess a string $S$ to search the starting positions of all occurrences of $
 >
 > The compact trie of all suﬃxes of S.
 >
-> Space: O(Number of edges + space for edge labels + string) = $O(n)$
-> 
-> Time: $O(|P|+occ)$
->
-> Preprocessing time: 
+> > Space: O(Number of edges + space for edge labels + string) = $O(n)$
+> > 
+> > Time: $O(|P|+occ)$
+> >
+> > Preprocessing time: $O(sort(n,|Σ|))$.  Time to sort $n$ characters from an alphabet $Σ$.
 
 ## 5.2 Longest common substring problem
 Find longest common substring of strings $S_1$ and $S_2$.
@@ -264,6 +264,49 @@ Find longest common substring of strings $S_1$ and $S_2$.
 <p align="center"><img src=".data/Suffix_tree_on_S1S2.png" alt="pic" width="75%" /></p>
 
 > The suﬃx tree over $S_1\$1S_2\$2$.
+
+
+# 6. Radix and Suffix Sorting
+
+## 6.1 Sorting small universes problem
+
+Given a sequence of $n$ integers from a universe $U = \{0, 1, ..., u-1\}$ that is not too big.
+
+### Radix sort
+
+<p align="center"><img src=".data/Radix_sort.png" alt="pic" width="25%" /></p>
+
+> Sort on each digit from right to left using stable sort.
+> 
+> For each digit, insert into array of linked list + traverse array of linked list.
+>
+> > Space: $O(n+u)$
+> >
+> > Time: $O(n \cdot k)$
+
+## 6.2
+
+Given string $S$ of length $n$ over alphabet $Σ$, sort all suﬃxes of S in lexicographic order.
+
+### Difference Cover Sampling
+
+<p align="center"><img src=".data/DC3_1.png" alt="pic" width="75%" /></p>
+
+> Recursively sort sample suﬃxes starting at positions $i = 1 \mod 3$ and $i = 2 \mod 3$.
+
+<p align="center"><img src=".data/DC3_2.png" alt="pic" width="25%" /></p>
+
+> Sort Non-Sample Suffixes.
+
+<p align="center"><img src=".data/DC3_3.png" alt="pic" width="25%" /></p>
+
+> Merge
+>
+> * When compare $S_0$ with $S_1$：$(S[i], \text{rank}[i+1]) \stackrel{?}{\leq} (S[j], \text{rank}[j+1])$
+>
+> * When compare $S_0$ with $S_2$：$(S[i], S[i+1], \text{rank}[i+2]) \stackrel{?}{\leq} (S[j], S[j+1], \text{rank}[j+2])$
+
+> Time: $T(n) = T(2n/3) + O(n) = O(n)$
 
 # Week12:
 

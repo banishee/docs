@@ -418,6 +418,46 @@ Maintain a set $S ⊆ U = \{0, ..., u-1\}$ to support `search`, `insert` and `de
 
 # Week9 External Memory 2
 
+## 9.1 Access Path Traversal problem
+
+Data structure $D$ stores a dynamic set of items. We can only access $D$ by following an access path $P$.
+
+### Buﬀered updates
+
+<p align="center"><img src=".data/Access_Path_buffered.png" alt="pic" width="10%" /></p>
+
+> Add buﬀers of size $B$ to each edge stored in O(1) blocks.
+>
+> Buﬀers store delayed updates to $D$
+>
+> > Search: $O(P)$
+> >
+> > Update: $O(\frac{P}{B})$
+
+## 9.2 Searching with Fast Updates
+
+### $B^\epsilon$-tree
+
+<p align="center"><img src=".data/Square_root_tree.png" alt="pic" width="50%" /></p>
+
+> Speed up updates by buﬀering them at each node along the path to a leaf.
+>
+> Move many updates together in each I/O.
+>
+> Insert delayed insert/delete into first buﬀer on path. If full, flush and recurse on next node in path. If we fill leaf, rebalance tree as B-tree.
+>
+> $\epsilon ∈ (0, 1]$ is a parameter.
+>
+> > <p align="center"><img src=".data/B_epsilon.png" alt="pic" width="25%" /></p>
+> >
+> > Height: $log_{b^\epsilon} N = \frac{log_b N}{\epsilon}$
+> >
+> > Search: $O(\frac{log_b N}{\epsilon})$
+> >
+> > Update: $O(\frac{Height}{Buffer}) = O(\frac{log_b N}{\epsilon \cdot B^{1-\epsilon}})$
+
+
+
 # Week12:
 
 https://priyadarshanghosh26.medium.com/christofides-algorithm-the-secret-weapon-for-route-optimization-d2b9ec68d66e

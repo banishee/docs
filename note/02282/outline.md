@@ -457,6 +457,60 @@ Data structure $D$ stores a dynamic set of items. We can only access $D$ by foll
 > > Update: $O(\frac{Height}{Buffer}) = O(\frac{log_b N}{\epsilon \cdot B^{1-\epsilon}})$
 
 
+# Week11 Range Report
+
+Preprocess at set of points $P ⊆ \mathcal{R}^2$ to return the set of points in $R$, where $R$ is rectangle given by $(x_1, y_1)$ and $(x_2, y_2)$.
+
+## 2D Range Tree + Bridges
+
+<p align="center"><img src=".data/2D_range_tree_with_bridges.png" alt="pic" width="50%" /></p>
+
+> Perfectly balanced binary tree over $x$-coordinate.
+>
+> Each node $v$ stores array of points below $v$ sorted by $y$-coordinate.
+>
+> Each point in array at $v$ stores bridges to arrays in $v_l$ and $v_r$
+>
+> Arrays at $v_l$ and $v_r$ are subsets of array at $v$. 
+>
+> $Report(x1, y1, x2, y2)$: 
+> > Find paths to predecessor of $x_1$ and successor of $x_2$, get each `oﬀ-path` node.
+> > 
+> > Binary search predecessor of $y_1$ and successor of $y_2$ in root array + traverse bridges for remaining 1D queries.
+>
+> > Space: $O(n logn)$
+> >
+> > Time: $O(logn + occ)$
+> >
+> > Preprocessing. $O(nlog n)$
+
+## kD-tree
+
+<p align="center"><img src=".data/kD-tree.png" alt="pic" width="100%" /></p>
+
+> A balanced binary tree over point set $P$.
+>
+> Recursively partition $P$ into rectangular regions containing (roughly) same number of points. Partition by alternating horizontal and vertical lines.
+>
+> Each node in tree stores region and line.
+>
+> > $Report(x1, y1, x2, y2)$: Traverse 2D tree starting at the root. At node $v$:
+> >
+> > 1. $v$ is a leaf: report the unique point in region($v$) if contained in range.
+> > 2. region($v$) is disjoint from range: stop.
+> > 3. region($v$) is contained in range: report all points in region($v$).
+> > 4. region($v$) intersects range, and $v$ is not a leaf. Recurse left and right.
+>
+> > Space: $O(n)$
+> >
+> > Time: $O(\sqrt{n} + occ)$
+> >
+> > Preprocessing. $O(nlog n)$
+
+
+# Week10 Approximation 1
+
+Load balancing
 
 # Week12:
 

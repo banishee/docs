@@ -510,7 +510,42 @@ Preprocess at set of points $P ⊆ \mathcal{R}^2$ to return the set of points in
 
 # Week10 Approximation 1
 
-Load balancing
+## 10.1 Load balancing
+
+Schedule $n$ jobs on $m$ machines so as to minimize the maximum load $T$.
+
+### Longest processing time rule
+
+<p align="center"><img src=".data/lpt.png" alt="pic" width="100%" /></p>
+
+> Sort jobs in non-increasing order. Assign next job on list to machine as soon as it becomes idle.
+>
+> > $t1 ≥ …. ≥ t_n$
+> > 
+> > $t_m ≥ t_{m+1}$
+> >
+> > $T^* ≥ t_m + t_{m+1}$  =>  $T^* ≥ 2t_{m+1}$
+> >
+> > $\frac{1}{2}T^* ≥ t_{m+1} ≥ t_i$  => $\frac{3}{2}T^* ≥ t_i + s$
+> 
+> > If $\frac{1}{3}T^* ≥ t_n$ then $\frac{4}{3}T^* ≥ T$.
+> > 
+> > If $\frac{1}{3}T^* < t_n$ then $3\cdot t_n > T^*$, so each machine only could take 2 jobs at most. $2m ≥ n$
+
+## 10.2 K-center
+
+An integer $k$ and a set of sites $S$ with distance $d(i,j)$. Choose a set $C$ of k centers so as to minimize the maximum
+distance of a site to its closest center.
+
+### Greedy algorithm
+
+<p align="center"><img src=".data/k-center.png" alt="pic" width="100%" /></p>
+
+> Pick arbitrary $i$ into $C$.
+>
+> Find site $j$ farthest away from any cluster center in $C$, then put $j$ into $C$.
+>
+> Repeat until $|C| = k$.
 
 # Week12:
 

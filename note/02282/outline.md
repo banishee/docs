@@ -284,7 +284,7 @@ Given a sequence of $n$ integers from a universe $U = \{0, 1, ..., u-1\}$ that i
 > >
 > > Time: $O(n \cdot k)$
 
-## 6.2
+## 6.2 Suffix sort problem
 
 Given string $S$ of length $n$ over alphabet $Σ$, sort all suﬃxes of S in lexicographic order.
 
@@ -307,6 +307,116 @@ Given string $S$ of length $n$ over alphabet $Σ$, sort all suﬃxes of S in lex
 > * When compare $S_0$ with $S_2$：$(S[i], S[i+1], \text{rank}[i+2]) \stackrel{?}{\leq} (S[j], S[j+1], \text{rank}[j+2])$
 
 > Time: $T(n) = T(2n/3) + O(n) = O(n)$
+
+# Week7 Compression:
+
+## Lempel-Ziv 77
+
+**Encode**
+
+> Build suﬃx tree. Store smallest leaf below each node.
+> 
+> <p align="center"><img src=".data/Ziv_77_tree.png" alt="pic" width="50%" /></p>
+>
+> Parse from left-to-right into phrases.
+> > <p align="center"><img src=".data/Ziv_77_array.png" alt="pic" width="50%" /></p>
+> >
+> > Select longest matching substring starting before current position + 1 extra character.
+> >
+> > Encode phrases by (previous occ dist, length, extra character) or single character.
+>
+> > Time: $O(sort(n, |Σ|).$
+
+**Decode**
+
+>  Read and decode left-to-right.
+
+## Lempel-Ziv 78
+
+**Encode**
+
+> <p align="center"><img src=".data/Ziv_78.png" alt="pic" width="50%" /></p>
+>
+> Dynamically build and traverse the LZ78 trie.
+>
+> Parse from left-to-right into phrases.
+> 
+> Select longest phrase seen before + a single character.
+> 
+> Encode phrases (previous phrase, character) or single phrase.
+>
+> > Time: $O(N)$ expected
+
+**Decode**
+
+> Read and decode left-to-right.
+>
+> > Time: $O(N)$
+
+## Recursive-pairing compression
+
+<p align="center"><img src=".data/Re-Pair_Compression.png" alt="pic" width="25%" /></p>
+
+> Start with string $S$.
+>
+> Replace a most frequent pair by new character $X_i$. Output rule $X_i ➞ ab$.
+>
+> Repeat until we have a single pair.
+
+>  Unfold rules top-down.
+
+## Grammar Compression
+
+<p align="center"><img src=".data/Grammar_Compression.png" alt="pic" width="50%" /></p>
+
+> Encode string $S$ as an grammar $G$ that generates $S$.
+
+> Parse tree. Unfolded set of rules.
+
+# Week8 External Memory 1
+
+## 8.1 Sorting
+
+Given array $A$ of $N$ values, output the values in increasing order.
+
+### External Merge Sort
+
+<p align="center"><img src=".data/Multiway_merge.png" alt="pic" width="50%" /></p>
+
+> Partition $N$ elements into $\frac{N}{M}$ arrays of size $M$.
+> 
+> Load each into memory and sort.
+
+> Apply $\frac{M}{B}$ way external multiway merge until left with single sorted array.
+>
+> > <p align="center"><img src=".data/Multiway_merge_2.png" alt="pic" width="50%" /></p>
+> > 
+> > Load $\frac{M}{B}$ first blocks into memory.
+> > 
+> > Output the smallest number among blocks.
+> > 
+> > Load more blocks into memory if needed.
+> >
+> > Repeat
+
+> I/Os: $O(\frac{N}{B} + \frac{N}{B} log_\frac{M}{B} \frac{N}{M})$
+
+## 8.2 Searching
+
+Maintain a set $S ⊆ U = \{0, ..., u-1\}$ to support `search`, `insert` and `delete`.
+
+<p align="center"><img src=".data/B-tree.png" alt="pic" width="50%" /></p>
+
+> B-tree of order $δ = ϴ(B)$ with $N$ keys.
+> > Keys in leaves.
+> > 
+> > Degree between $\frac{δ}{2}$ and $δ$.
+>
+> > Root degree between 2 and δ.
+>
+> > Height: $log_\delta \frac{N}{B}$
+
+# Week9 External Memory 2
 
 # Week12:
 

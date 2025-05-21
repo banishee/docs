@@ -186,7 +186,7 @@ Preprocess rooted tree $T$ with $n$ nodes to support querying the lowest common 
 <p align="center"><img src=".data/Cartesian_tree.png" alt="pic" width="75%" /></p>
 
 > Build a `Cartesian Tree` on array.
->  > Min-heap: every parent node <= Child nodes. 
+>  > The value in subtree root is minimum. 
 >  > 
 >  > Inorder of tree (left->root->right) is the original array.
 > 
@@ -549,4 +549,30 @@ distance of a site to its closest center.
 
 # Week12:
 
-https://priyadarshanghosh26.medium.com/christofides-algorithm-the-secret-weapon-for-route-optimization-d2b9ec68d66e
+## 12.1 Traveling Salesman Problem
+
+Set of cities  $\{1,…,n\}$
+
+$c_ij ≥ 0$: cost of traveling from $i$ to $j$ with triangle inequality.
+
+Find a tour of minimum cost visiting every city exactly once. (Hamiltonian cycle)
+
+### Christofides algorithm
+
+<p align="center"><img src=".data/Christofides_algorithm.png" alt="pic" width="50%" /></p>
+
+> Compute MST $T$, which is a lower bound on TSP.
+>
+> Consider set $O$ of all odd degree vertices in $T$.
+>
+> Find minimum cost perfect matching $M$ on $O$.
+>
+> $T + M$ is a Eulerian. It's connected and all nodes have even degree.
+>
+> Construct Euler tour $𝞃$ (visiting every edge exactly once). And shortcut into $𝞃'$ such that each vertex only visited once.
+>
+> > $len(𝞃') <= len(𝞃) = cost(T) + cost(M)$
+> >
+> > $cost(T) <= OPT$
+> >
+> > $cost(M) <= min(cost(O_1), cost(O_2)) <= \frac{OPT}{2}$

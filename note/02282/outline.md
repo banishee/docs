@@ -174,7 +174,7 @@ Consecutive entries diﬀer by 1.
 > > > > 
 > > > > Number of block descriptions: $2^{\frac{1}{2} logn - 1} ≤ \sqrt{n}$
 > > >
-> > Space: $O(O(\sqrt{n}(log^2 n)) + O(\frac{n}{logn}))$ = $O(n)$
+> > Space: $O(\sqrt{n}(log^2 n) + O(\frac{n}{logn}))$ = $O(n)$
 >
 > Space: SparseTable + PrecomputedTables = $O(n)$
 >
@@ -553,7 +553,7 @@ distance of a site to its closest center.
 
 Set of cities  $\{1,…,n\}$
 
-$c_ij ≥ 0$: cost of traveling from $i$ to $j$ with triangle inequality.
+$c_{ij} ≥ 0$: cost of traveling from $i$ to $j$ with triangle inequality.
 
 Find a tour of minimum cost visiting every city exactly once. (Hamiltonian cycle)
 

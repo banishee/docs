@@ -101,7 +101,7 @@ We want a Static predecessor with $O(log log u)$ query time.
 >
 > > Space: $O(u)$
 > >
-> > Time: $𝖳(𝗎) = 𝖳 (𝗎)+ 𝖮(𝟣) = 𝖮(log log 𝗎)$
+> > Time: $𝖳(𝗎) = 𝖳 (\sqrt u)+ 𝖮(𝟣) = 𝖮(log log 𝗎)$
 >
 
 ## Y-Trie
